@@ -1,0 +1,181 @@
+/* src/sections/FreeTrial.css */
+.trial-section {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.trial-section::before {
+  content: '';
+  position: absolute;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(255,90,31,.12) 0%, transparent 60%);
+  top: -200px; right: -200px;
+}
+.trial-section::after {
+  content: '';
+  position: absolute;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(198,255,61,.06) 0%, transparent 60%);
+  bottom: -100px; left: -100px;
+}
+
+.trial-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+@media (min-width: 900px) {
+  .trial-inner { grid-template-columns: 1fr 1fr; }
+}
+
+/* Left */
+.trial-left {
+  padding: 5rem 3rem 5rem 4rem;
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 900px) { .trial-left { padding: 4rem 2rem 2rem; } }
+
+.trial-eyebrow {
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent-lime);
+  margin-bottom: 1rem;
+}
+.trial-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.05;
+  color: var(--white);
+  margin-bottom: 1.2rem;
+  letter-spacing: .03em;
+}
+.trial-sub {
+  color: rgba(255,255,255,.65);
+  line-height: 1.7;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  max-width: 420px;
+}
+.trial-perks {
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+}
+.trial-perks li {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  font-size: .9rem;
+  color: rgba(255,255,255,.8);
+  font-weight: 500;
+}
+.trial-perks svg { color: var(--accent-lime); flex-shrink: 0; }
+
+/* Right */
+.trial-right {
+  background: rgba(255,255,255,.04);
+  backdrop-filter: blur(12px);
+  border-left: 1px solid rgba(255,255,255,.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 3rem;
+}
+@media (max-width: 900px) {
+  .trial-right { border-left: none; border-top: 1px solid rgba(255,255,255,.08); padding: 2rem; }
+}
+
+/* Form */
+.trial-form, .trial-success {
+  width: 100%;
+  max-width: 440px;
+}
+.form-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  letter-spacing: .05em;
+  color: var(--white);
+  margin-bottom: 1.8rem;
+}
+.form-group { margin-bottom: 1.2rem; }
+.form-label {
+  display: block;
+  font-size: .82rem;
+  font-weight: 700;
+  color: rgba(255,255,255,.65);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  margin-bottom: .4rem;
+}
+.form-input {
+  width: 100%;
+  padding: .9rem 1.2rem;
+  background: rgba(255,255,255,.08);
+  border: 1.5px solid rgba(255,255,255,.15);
+  border-radius: var(--radius);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: .95rem;
+  outline: none;
+  transition: border-color var(--t-fast), background var(--t-fast);
+}
+.form-input::placeholder { color: rgba(255,255,255,.3); }
+.form-input:focus { border-color: var(--primary); background: rgba(255,90,31,.08); }
+.form-input.error { border-color: #F87171; }
+.form-select { cursor: pointer; appearance: none; }
+option { background: var(--navy); color: var(--white); }
+.form-error { font-size: .75rem; color: #F87171; margin-top: .3rem; display: block; }
+.form-submit { width: 100%; justify-content: center; margin-top: 1.5rem; }
+.form-disclaimer {
+  font-size: .72rem;
+  color: rgba(255,255,255,.35);
+  text-align: center;
+  margin-top: .75rem;
+  line-height: 1.5;
+}
+
+/* Success */
+.trial-success {
+  text-align: center;
+  color: var(--white);
+  position: relative;
+  padding: 2rem 1rem;
+}
+.success-icon {
+  color: var(--accent-lime);
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px; height: 80px;
+  background: rgba(198,255,61,.12);
+  border-radius: 50%;
+}
+.trial-success h3 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  letter-spacing: .05em;
+  margin-bottom: 1rem;
+}
+.trial-success p { color: rgba(255,255,255,.7); line-height: 1.6; margin-bottom: .5rem; }
+.success-note { font-size: .85rem; margin-bottom: 2rem; }
+.success-note strong { color: var(--accent-lime); }
+
+/* Confetti */
+.confetti-wrap {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+.confetti-piece {
+  position: absolute;
+  top: -10px;
+  animation: confetti-fall 2.5s ease-in forwards;
+}

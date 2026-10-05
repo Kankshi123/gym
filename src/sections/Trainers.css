@@ -1,0 +1,108 @@
+/* src/sections/Trainers.css */
+.trainers-section {
+  padding: var(--section-py) 0;
+  background: var(--bg-warm);
+}
+
+.trainers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+@media (min-width: 900px) { .trainers-grid { grid-template-columns: repeat(4, 1fr); } }
+
+.trainer-card-wrap { /* Reveal wrapper */ }
+
+.trainer-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--t-med), transform var(--t-med) var(--ease-bounce);
+}
+.trainer-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-6px);
+}
+
+/* Image + overlay */
+.trainer-img {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+@media (min-width: 900px) { .trainer-img { height: 360px; } }
+
+.trainer-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform var(--t-slow) var(--ease);
+}
+.trainer-card:hover .trainer-img img { transform: scale(1.05); }
+
+.trainer-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(255,90,31,.95) 0%, rgba(255,90,31,.6) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity var(--t-med) var(--ease);
+  display: flex;
+  align-items: flex-end;
+}
+.trainer-card:hover .trainer-overlay { opacity: 1; }
+
+.trainer-overlay-inner {
+  padding: 1.5rem;
+  transform: translateY(16px);
+  transition: transform var(--t-med) var(--ease);
+  width: 100%;
+}
+.trainer-card:hover .trainer-overlay-inner { transform: translateY(0); }
+
+.trainer-specialty {
+  font-size: .85rem;
+  font-weight: 700;
+  color: var(--accent-lime);
+  letter-spacing: .05em;
+  margin-bottom: .35rem;
+}
+.trainer-exp {
+  font-size: .8rem;
+  color: rgba(255,255,255,.85);
+  margin-bottom: 1rem;
+}
+
+.trainer-socials {
+  display: flex;
+  gap: .6rem;
+}
+.trainer-social {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  transition: background var(--t-fast), transform var(--t-fast);
+  backdrop-filter: blur(4px);
+}
+.trainer-social:hover { background: var(--white); color: var(--primary); transform: scale(1.1); }
+
+/* Info */
+.trainer-info { padding: 1.2rem 1.5rem; }
+.trainer-name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  letter-spacing: .03em;
+  color: var(--navy);
+  margin-bottom: .25rem;
+}
+.trainer-role {
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--primary);
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}

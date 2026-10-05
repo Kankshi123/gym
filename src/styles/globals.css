@@ -1,0 +1,201 @@
+/* ============================================================
+   src/styles/globals.css
+   Design System – all tokens, resets, utilities
+   ============================================================ */
+
+/* ── Google Fonts already loaded in index.html ── */
+
+/* ── CSS Variables ── */
+:root {
+  /* Colors */
+  --bg:           #FFFFFF;
+  --bg-warm:      #FFF8F1;
+  --primary:      #FF5A1F;
+  --primary-dark: #D94400;
+  --primary-light:#FF8A5C;
+  --accent-lime:  #C6FF3D;
+  --accent-yellow:#FFD400;
+  --navy:         #0B1B3A;
+  --navy-soft:    #1A2D52;
+  --grey-soft:    #64748B;
+  --grey-light:   #F1F5F9;
+  --grey-border:  #E2E8F0;
+  --white:        #FFFFFF;
+
+  /* Typography */
+  --font-display: 'Bebas Neue', 'Anton', sans-serif;
+  --font-body:    'Poppins', 'Inter', sans-serif;
+
+  /* Spacing */
+  --section-py:   7rem;
+  --container:    1280px;
+  --radius:       1rem;
+  --radius-lg:    1.5rem;
+  --radius-xl:    2rem;
+
+  /* Shadows */
+  --shadow-sm:    0 2px 8px rgba(11,27,58,.06);
+  --shadow-md:    0 8px 30px rgba(11,27,58,.10);
+  --shadow-lg:    0 20px 60px rgba(11,27,58,.14);
+  --shadow-orange:0 8px 30px rgba(255,90,31,.30);
+
+  /* Transitions */
+  --ease:         cubic-bezier(.25,.1,.25,1);
+  --ease-bounce:  cubic-bezier(.34,1.56,.64,1);
+  --t-fast:       .15s;
+  --t-med:        .3s;
+  --t-slow:       .5s;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--navy);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img, video { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+ul, ol { list-style: none; }
+h1, h2, h3, h4, h5, h6 { line-height: 1.1; }
+
+/* ── Utility Classes ── */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+@media (min-width: 768px) { .container { padding: 0 2.5rem; } }
+@media (min-width: 1280px) { .container { padding: 0 3rem; } }
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+}
+
+.display-font { font-family: var(--font-display); }
+
+.text-primary { color: var(--primary); }
+.text-navy    { color: var(--navy); }
+.text-white   { color: var(--white); }
+
+.bg-warm      { background: var(--bg-warm); }
+.bg-navy      { background: var(--navy); }
+.bg-primary   { background: var(--primary); }
+
+/* ── Scroll Progress Bar ── */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent-lime));
+  z-index: 10000;
+  transform-origin: left;
+  transition: width .1s linear;
+}
+
+/* ── Custom Cursor ── */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+}
+.cursor-dot {
+  width: 8px; height: 8px;
+  background: var(--primary);
+  transform: translate(-50%, -50%);
+  transition: transform .1s var(--ease);
+}
+.cursor-ring {
+  width: 36px; height: 36px;
+  border: 2px solid var(--primary);
+  transform: translate(-50%, -50%);
+  transition: transform .2s var(--ease), width .2s, height .2s;
+}
+.cursor-ring.hovered {
+  width: 56px; height: 56px;
+  border-color: var(--accent-lime);
+}
+
+/* ── Diagonal Divider ── */
+.section-divider {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+.section-divider svg { display: block; }
+
+/* ── Animated Underline ── */
+.underline-anim {
+  display: inline-block;
+  position: relative;
+}
+.underline-anim::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 3px;
+  background: var(--primary);
+  border-radius: 2px;
+  transition: width var(--t-slow) var(--ease);
+}
+.underline-anim:hover::after { width: 100%; }
+
+/* ── Keyframes ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%       { transform: translateY(-16px) rotate(3deg); }
+}
+@keyframes float2 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%       { transform: translateY(-10px) rotate(-5deg); }
+}
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes pulse-ring {
+  0%   { transform: scale(1);   opacity: .6; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes bounce-in {
+  0%   { transform: scale(0) rotate(-10deg); opacity: 0; }
+  60%  { transform: scale(1.1) rotate(3deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+@keyframes confetti-fall {
+  0%   { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(300px) rotate(720deg); opacity: 0; }
+}
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(255,90,31,.4); }
+  50%       { box-shadow: 0 0 40px rgba(255,90,31,.8); }
+}
+
+/* ── Prefers reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}

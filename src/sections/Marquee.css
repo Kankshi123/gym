@@ -1,0 +1,39 @@
+/* src/sections/Marquee.css */
+.marquee-strip {
+  background: var(--navy);
+  padding: 1.1rem 0;
+  overflow: hidden;
+  position: relative;
+}
+.marquee-strip::before,
+.marquee-strip::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 80px;
+  z-index: 2;
+}
+.marquee-strip::before { left: 0; background: linear-gradient(to right, var(--navy), transparent); }
+.marquee-strip::after  { right: 0; background: linear-gradient(to left, var(--navy), transparent); }
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 22s linear infinite;
+}
+.marquee-strip:hover .marquee-track { animation-play-state: paused; }
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: .12em;
+  color: rgba(255,255,255,.75);
+  padding: 0 1.5rem;
+  white-space: nowrap;
+  transition: color var(--t-fast);
+}
+.marquee-item:hover { color: var(--accent-lime); }
+.marquee-dot { color: var(--primary); font-size: 1.4rem; line-height: 1; }

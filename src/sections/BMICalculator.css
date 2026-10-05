@@ -1,0 +1,120 @@
+/* src/sections/BMICalculator.css */
+.bmi-section {
+  padding: var(--section-py) 0;
+  background: var(--bg-warm);
+}
+
+.bmi-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: start;
+  max-width: 900px;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .bmi-inner { grid-template-columns: 1fr 1fr; }
+}
+
+/* Form */
+.bmi-form {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.bmi-label {
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--grey-soft);
+  margin-bottom: .6rem;
+  letter-spacing: .02em;
+  display: block;
+}
+.bmi-label strong { color: var(--navy); font-size: 1rem; }
+
+.bmi-range {
+  width: 100%;
+  accent-color: var(--primary);
+  height: 6px;
+  cursor: pointer;
+  appearance: none;
+  border-radius: 100px;
+  background: linear-gradient(to right, var(--primary) var(--value, 50%), var(--grey-border) var(--value, 50%));
+  outline: none;
+  margin-bottom: .4rem;
+}
+.bmi-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 22px; height: 22px;
+  background: var(--primary);
+  border-radius: 50%;
+  border: 3px solid var(--white);
+  box-shadow: 0 2px 8px rgba(255,90,31,.4);
+  cursor: pointer;
+  transition: transform var(--t-fast) var(--ease-bounce);
+}
+.bmi-range::-webkit-slider-thumb:hover { transform: scale(1.2); }
+
+.bmi-range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: .7rem;
+  color: var(--grey-soft);
+  margin-bottom: .5rem;
+}
+
+.bmi-btn { margin-top: 2rem; width: 100%; justify-content: center; }
+
+/* Result */
+.bmi-result-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bmi-result {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  width: 100%;
+}
+
+.bmi-gauge svg {
+  width: 100%;
+  max-width: 240px;
+  margin: 0 auto;
+  display: block;
+  overflow: visible;
+}
+
+.bmi-category {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  letter-spacing: .06em;
+  margin: .5rem 0;
+}
+
+.bmi-tip {
+  font-size: .88rem;
+  color: var(--grey-soft);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.bmi-placeholder {
+  text-align: center;
+  color: var(--grey-soft);
+  padding: 3rem 2rem;
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  width: 100%;
+  border: 2px dashed var(--grey-border);
+}
+.bmi-placeholder-icon { font-size: 3rem; margin-bottom: 1rem; }
+.bmi-placeholder p { font-size: .9rem; }

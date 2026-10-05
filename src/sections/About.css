@@ -1,0 +1,111 @@
+/* src/sections/About.css */
+.about-section {
+  padding: var(--section-py) 0 0;
+  background: var(--bg);
+  position: relative;
+}
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: center;
+  padding-bottom: var(--section-py);
+}
+@media (min-width: 900px) {
+  .about-inner { grid-template-columns: 1fr 1fr; }
+}
+
+/* Image collage */
+.about-images {
+  position: relative;
+  height: 500px;
+}
+@media (min-width: 900px) { .about-images { height: 600px; } }
+
+.about-img {
+  position: absolute;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.about-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform var(--t-slow) var(--ease);
+}
+.about-img:hover img { transform: scale(1.04); }
+
+.about-img--main {
+  width: 72%; height: 78%;
+  top: 0; left: 0;
+}
+.about-img--secondary {
+  width: 52%; height: 52%;
+  bottom: 0; right: 0;
+  border: 5px solid var(--bg);
+}
+
+/* Stat badge */
+.about-stat-badge {
+  position: absolute;
+  top: 42%; left: 55%;
+  background: var(--primary);
+  border-radius: 50%;
+  width: 110px; height: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: var(--shadow-orange);
+  z-index: 2;
+  animation: float 4s ease-in-out infinite;
+}
+.asb-number {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--white);
+  line-height: 1;
+}
+.asb-label {
+  font-size: .5rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.8);
+  line-height: 1.4;
+  margin-top: .2rem;
+}
+
+/* Perks */
+.about-perks {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  margin-bottom: 2.5rem;
+}
+.about-perk {
+  display: flex;
+  align-items: flex-start;
+  gap: .75rem;
+  font-size: .95rem;
+  color: var(--grey-soft);
+  line-height: 1.5;
+}
+.perk-icon {
+  flex-shrink: 0;
+  width: 24px; height: 24px;
+  background: rgba(255,90,31,.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  margin-top: .1rem;
+}
+
+/* Divider */
+.about-divider {
+  height: 60px;
+  margin-top: -1px;
+}

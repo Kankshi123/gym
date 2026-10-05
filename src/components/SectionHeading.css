@@ -1,0 +1,51 @@
+/* src/components/SectionHeading.css */
+.section-heading { margin-bottom: 3.5rem; }
+.section-heading.center { text-align: center; }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: .75rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: rgba(255,90,31,.1);
+  padding: .35rem 1rem;
+  border-radius: 100px;
+  margin-bottom: 1rem;
+}
+.eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 6px; height: 6px;
+  background: var(--primary);
+  border-radius: 50%;
+}
+
+.heading-text {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 1.05;
+  color: var(--navy);
+  letter-spacing: .02em;
+}
+
+.section-heading.light .heading-text,
+.section-heading.light .subtitle-text { color: var(--white); }
+.section-heading.light .eyebrow {
+  color: var(--accent-lime);
+  background: rgba(198,255,61,.15);
+}
+.section-heading.light .eyebrow::before { background: var(--accent-lime); }
+
+.subtitle-text {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  color: var(--grey-soft);
+  line-height: 1.7;
+  max-width: 560px;
+}
+.section-heading.center .subtitle-text { margin: 1rem auto 0; }

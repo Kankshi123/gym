@@ -1,0 +1,102 @@
+/* src/sections/Preloader.css */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.preloader__inner {
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+
+.preloader__logo {
+  margin-bottom: 2.5rem;
+}
+.preloader__logo svg {
+  width: 140px;
+  margin: 0 auto 1rem;
+  filter: drop-shadow(0 4px 20px rgba(255,90,31,.5));
+  animation: float 3s ease-in-out infinite;
+}
+
+.preloader__name {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  letter-spacing: .1em;
+  color: var(--white);
+}
+
+.preloader__bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.preloader__bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255,255,255,.12);
+  border-radius: 100px;
+  overflow: hidden;
+  width: 280px;
+}
+
+.preloader__fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--accent-lime));
+  border-radius: 100px;
+  transition: width .1s linear;
+}
+
+.preloader__count {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--primary);
+  min-width: 3.5rem;
+  text-align: right;
+}
+
+.preloader__tagline {
+  font-family: var(--font-body);
+  font-size: .8rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+}
+
+/* Background shapes */
+.preloader__shapes { position: absolute; inset: 0; overflow: hidden; }
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: .06;
+}
+.shape.s1 {
+  width: 400px; height: 400px;
+  background: var(--primary);
+  top: -100px; right: -100px;
+  animation: float 6s ease-in-out infinite;
+}
+.shape.s2 {
+  width: 300px; height: 300px;
+  background: var(--accent-lime);
+  bottom: -80px; left: -80px;
+  animation: float2 5s ease-in-out infinite;
+}
+.shape.s3 {
+  width: 200px; height: 200px;
+  background: var(--accent-yellow);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  animation: spin-slow 20s linear infinite;
+  border-radius: 40%;
+  opacity: .04;
+}
